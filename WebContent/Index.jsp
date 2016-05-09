@@ -4,28 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="viewport" content="width=device-width">
+<meta http-equiv="refresh" content="0; url='view/home.jsp'">
 <title>BibliControl</title>
-<script src="script/jQuery/external/jquery/jquery.js">
-	
-</script>
-<link rel="stylesheet" type="text/css"
-	href="css/bootstrap-3.1.1-dist/css/bootstrap.min.css" />
-<script src="css/bootstrap-3.1.1-dist/js/bootstrap.min.js">
-	
-</script>
 </head>
-<body>
-	<div class="container-fluid">
-		<header class="row"> <%@include file="includes/header.jsp"%>
-		Bem vindos ao BibliControl
-		</header>
-        <main>
-        eu sou o main
-        
-        </main>
-		<footer>
-		eu sou o footer
-		</footer>
-	</div>
-</body>
+
 </html>

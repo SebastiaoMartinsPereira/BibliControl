@@ -1,0 +1,56 @@
+@CHARSET "ISO-8859-1";
+
+@import url("main-index.css");
+
+.wrapper-main {
+	border: groove;
+	height: 36em;
+	box-sizing: content-box;
+	box-shadow: 28px 26px 6em 4px rgba(0, 0, 0, 0.2);
+	border-radius: 34px;
+	width: calc(75% - 2px);
+	background-color: rgba(255, 255, 255, 0.97);
+	max-height: 500px;
+	position: relative;
+	margin-left: calc(100% - 89%);
+}
+
+.frm-main-header {
+	padding-bottom: 0%;
+	text-align: center;
+}
+
+.frm-main {
+	text-align: center;
+}
+
+label.radio-inline.frm-rd-tipo {
+	font-weight: bold;
+}
+
+.frm-btn {
+	text-align: right;
+}
+
+@media ( max-width : 767px) {
+	.wrapper-login {
+		height: 20em;
+		box-sizing: border-box;
+		margin-top: 4%;
+		box-shadow: 1px 1px 6em 969px rgba(0, 0, 0, 0.2);
+		border-radius: 34px;
+		width: 100%;
+		background-color: white;
+		margin: auto;
+	}
+	.frm-login-header {
+		padding-bottom: 0;
+	}
+	.form-horizontal .control-label, .form-horizontal .radio,
+		.form-horizontal .checkbox, .form-horizontal .radio-inline,
+		.form-horizontal .checkbox-inline {
+		margin-top: 0;
+		margin-bottom: 1em;
+		padding-top: 7px;
+	}
+}

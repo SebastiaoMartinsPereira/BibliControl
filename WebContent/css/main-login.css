@@ -1,0 +1,52 @@
+@CHARSET "ISO-8859-1";
+
+@import url("main-index.css");
+
+.wrapper-login {
+	border: groove;
+	height: 26em;
+	box-sizing: content-box;
+	margin-top: 4%;
+	box-shadow: 1px 1px 6em 9999px rgba(0, 0, 0, 0.2);
+	border-radius: 34px;
+	width: 28%;
+	max-height: 300px;
+	max-width: 300px;
+	/* margin: auto; */
+}
+
+.frm-login {
+	text-align: center;
+}
+
+.frm-login-header {
+	padding-bottom: 12%;
+	text-align: center;
+}
+
+@media ( max-width : 767px) {
+	.wrapper-login {
+		height: 20em;
+		box-sizing: border-box;
+		margin-top: 4%;
+		box-shadow: 1px 1px 6em 969px rgba(0, 0, 0, 0.2);
+		border-radius: 34px;
+		width: 100%;
+		background-color: white;
+		margin: auto;
+	}
+	.frm-login-header {
+		padding-bottom: 0;
+	}
+	.form-horizontal .control-label, .form-horizontal .radio,
+		.form-horizontal .checkbox, .form-horizontal .radio-inline,
+		.form-horizontal .checkbox-inline {
+		margin-top: 0;
+		margin-bottom: 1em;
+		padding-top: 7px;
+	}
+}
+
+
+
+
