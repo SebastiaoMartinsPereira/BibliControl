@@ -1,4 +1,4 @@
-package br.com.newprog.controller;
+package br.com.newprog.mvc.controller;
 
 import java.io.IOException;
 
@@ -21,7 +21,6 @@ public class Redirect extends HttpServlet {
 	 */
 	public Redirect() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**

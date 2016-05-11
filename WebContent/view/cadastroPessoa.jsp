@@ -19,9 +19,8 @@
 					<div class="col-lg-11 wrapper-main  animated bounceInLeft">
 						<h2 class="frm-main-header">Cadastro de Pessoas</h2>
 						<hr />
-
-						<form class="form-horizontal frm-main">
-
+						
+						<form class="form-horizontal frm-main" action="../AdicionaPessoaController" method="post">
 							<!-- tipos pessoa -->
 							<div class="form-group">
 								<label class="radio-inline frm-rd-tipo">Tipo Pessoa</label> <label
@@ -94,7 +93,7 @@
 
 							<div class="form-group">
 								<div class="col-lg-11 col-sm-10 frm-btn">
-									<button id="btnLogar" name="btnLogar"
+									<button id="btnLogar" name="btnLogar" type="submit"
 										class="btn btn-primary text-left">Salvar</button>
 								</div>
 							</div>

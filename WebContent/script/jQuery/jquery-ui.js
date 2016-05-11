@@ -3124,7 +3124,7 @@ $.widget("ui.resizable", $.ui.mouse, {
 			return true;
 		}
 
-		// TODO: determine which cases actually cause this to happen
+		
 		// if the element doesn't have the scroll set, see if it's possible to
 		// set the scroll
 		el[ scroll ] = 1;
@@ -3734,7 +3734,7 @@ $.widget("ui.resizable", $.ui.mouse, {
 				position: "absolute",
 				left: this.elementOffset.left + "px",
 				top: this.elementOffset.top + "px",
-				zIndex: ++o.zIndex //TODO: Don't modify option
+				zIndex: ++o.zIndex 
 			});
 
 			this.helper
@@ -6953,7 +6953,7 @@ var menu = $.widget( "ui.menu", {
 	},
 
 	select: function( event ) {
-		// TODO: It should never be possible to not have an active item at this
+		
 		// point, but the tests don't trigger mouseenter before click.
 		this.active = this.active || $( event.target ).closest( ".ui-menu-item" );
 		var ui = { item: this.active };
@@ -12544,7 +12544,7 @@ var spinner = $.widget( "ui.spinner", {
 			}
 			this._repeat( null, $( event.currentTarget ).hasClass( "ui-spinner-up" ) ? 1 : -1, event );
 		},
-		// TODO: do we really want to consider this a stop?
+	
 		// shouldn't we just stop the repeater and wait until mouseup before
 		// we trigger the stop event?
 		"mouseleave .ui-spinner-button": "_stop"
