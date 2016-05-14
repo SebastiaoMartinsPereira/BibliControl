@@ -9,6 +9,7 @@ footer {
 	text-align: center;
 	font-weight: bold;
 	font-size: 1.2em;
+	max-height: 2em;
 }
 
 .img-logo-footer-wrapper {
@@ -31,12 +32,12 @@ footer {
 	top: 10px;
 }
 
-	.navbar-fixed-bottom {
-		/* bottom: 0; */
-		margin-bottom: 0;
-		border-width: 1px 0 0;
-	}
-	
+.navbar-fixed-bottom {
+	/* bottom: 0; */
+	margin-bottom: 0;
+	border-width: 1px 0 0;
+}
+
 @media ( max-width : 767px) {
 	.img-logo-footer {
 		height: 2em;
@@ -56,7 +57,6 @@ footer {
 		background-size: 15%;
 		padding-top: 52px;
 	}
-	
 	.navbar-fixed-bottom {
 		/* bottom: 0; */
 		margin-bottom: 0;

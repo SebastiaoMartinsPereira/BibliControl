@@ -9,10 +9,10 @@ import javax.persistence.Persistence;
 import br.com.newprog.model.Pessoa;
 
 public class PessoaDAO {
-			
+
 	// declara o objeto static privado para que apenas a classe tenha acesso.
 	private static PessoaDAO instance;
-    
+
 	protected EntityManager entityManager;
 
 	private EntityManager getEntityManager() {
@@ -23,17 +23,17 @@ public class PessoaDAO {
 		}
 		return entityManager;
 	}
-   
-    // Cria o SingleTon
+
+	// Cria o SingleTon
 	public static PessoaDAO getInstance() {
 		if (instance == null) {
 			instance = new PessoaDAO();
 		}
 		return instance;
 	}
-    
-	//Private para que apenas a classe tenha acesso.
-	private PessoaDAO() {
+
+	// Private para que apenas a classe tenha acesso.
+	public PessoaDAO() {
 		entityManager = getEntityManager();
 	}
 
@@ -58,14 +58,21 @@ public class PessoaDAO {
 		entityManager.close();
 		return "redirect:lista-pessoas";
 	}
-    
+
 	/** Recupera a lista de Pessoas da base de dados */
-	public List<Pessoa> getLista() {
+	public List<Pessoa> getPessoas() {
 		@SuppressWarnings("unchecked")
 		List<Pessoa> lista = entityManager.createQuery(
 				"Select p from Pessoa as p").getResultList();
 		return lista;
 	}
-	
 
+	@SuppressWarnings("rawtypes")
+	public List<List> getNomes() {
+		
+		return entityManager.createQuery(
+				"select new List(" + "p.id," + "p.nome) from Pessoa as p",
+				List.class).getResultList();
+		
+	}
 }

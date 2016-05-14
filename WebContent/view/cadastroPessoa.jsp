@@ -7,11 +7,11 @@
 <title>Cadastro de Pessoas</title>
 <%@include file="../includes/headerImports.jsp"%>
 <link rel="stylesheet" type="text/css"
-	href="../css/main-cadastro-pessoa.css" />
+	href="${pageContext.request.contextPath}/css/main-cadastro-pessoa.css" />
 </head>
 <body>
 	<div class="container-fluid">
-		<%@include file="../includes/header.jsp"%>
+		<%@include file="/includes/header.jsp"%>
 		<main>
 		<div class="container">
 			<div class="main-index">
@@ -19,17 +19,18 @@
 					<div class="col-lg-11 wrapper-main  animated bounceInLeft">
 						<h2 class="frm-main-header">Cadastro de Pessoas</h2>
 						<hr />
-						
-						<form class="form-horizontal frm-main" action="../AdicionaPessoaController" method="post">
+
+						<form class="form-horizontal frm-main"
+							action="../PessoaController" method="post">
 							<!-- tipos pessoa -->
 							<div class="form-group">
 								<label class="radio-inline frm-rd-tipo">Tipo Pessoa</label> <label
 									class="radio-inline frm-rd-tipo"> <input
 									id="rdFuncionario" name="rdTipoPessoa" value="0" type="radio"
-									checked="checked"> Funcionário
+									checked="checked"> Aluno
 								</label> <label class="radio-inline frm-rd-tipo"> <input
 									id="rdAluno" name="rdTipoPessoa" value="1" type="radio">
-									Aluno
+									Funcionário
 								</label> <label class="radio-inline frm-rd-tipo"> <input
 									id="rdProfessor" name="rdTipoPessoa" value="2" type="radio">
 									Professor
@@ -40,21 +41,21 @@
 							<div class="form-group">
 								<label for="txtNome" class="col-lg-2 col-sm-2 control-label">Nome</label>
 								<div class="col-lg-9 col-sm-10">
-									<input type="text" class="form-control" id="txtNome"
-										name="txtNome" placeholder="Nome completo" />
+									<input type="text" class="form-control" id="nome" name="nome"
+										placeholder="Nome completo" />
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label for="txtRg" class="col-lg-2 col-sm-2 control-label">Rg</label>
 								<div class="col-lg-3 col-sm-10">
-									<input type="text" class="form-control" id="txtRg" name="txtRg"
+									<input type="text" class="form-control" id="txtRg" name="rg"
 										placeholder="99999999" />
 								</div>
 
 								<label for="txtCpf" class="col-lg-2 col-sm-2 control-label">Cpf</label>
 								<div class="col-lg-4 col-sm-10">
-									<input type="text" id="txtCpf" class="form-control"
+									<input type="text" id="txtCpf" class="form-control" name="cpf"
 										placeholder="999.999.999-99" />
 								</div>
 							</div>
@@ -70,7 +71,7 @@
 								<div class="col-lg-9 col-sm-10">
 									<div class="input-group">
 										<span class="input-group-addon">@</span> <input type="text"
-											id="txtEmail" class="form-control"
+											id="txtEmail" class="form-control" name="email"
 											placeholder="email@email.com">
 									</div>
 								</div>
@@ -81,13 +82,13 @@
 									Fixo</label>
 								<div class="col-lg-3 col-sm-10">
 									<input type="text" class="form-control" id="txtTelFixo"
-										name="txtTelFixo" placeholder="(11) 99999999" />
+										placeholder="(11) 99999999" name="telfixo" />
 								</div>
 
 								<label for="txtCelular" class="col-lg-2 col-sm-2 control-label">Celular</label>
 								<div class="col-lg-4 col-sm-10">
 									<input type="text" id="txtCelular" class="form-control"
-										placeholder="(11) 91111-1111" />
+										placeholder="(11) 91111-1111" name="telcelular" />
 								</div>
 							</div>
 
@@ -97,6 +98,8 @@
 										class="btn btn-primary text-left">Salvar</button>
 								</div>
 							</div>
+							<input type="hidden" id="logica" value="CadastroPessoa"
+								name="logica">
 						</form>
 					</div>
 				</div>

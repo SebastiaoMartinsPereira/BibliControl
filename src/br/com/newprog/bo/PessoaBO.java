@@ -10,7 +10,7 @@ public class PessoaBO extends Observable {
 
 	private static PessoaBO instance;
 
-    private PessoaBO() {
+    public PessoaBO() {
     	
     }
 
@@ -22,9 +22,9 @@ public class PessoaBO extends Observable {
     }
     
     //Chama a daoPessoa e retorna a lista de pessoas
-    public List<Pessoa> getClientes() {
+    public List<Pessoa> getPessoa() {
     	PessoaDAO dao = PessoaDAO.getInstance();
-        return dao.getLista();
+        return dao.getPessoas();
     }
     
     public Pessoa salvar(Pessoa pessoa) {
@@ -42,4 +42,9 @@ public class PessoaBO extends Observable {
     	notifyObservers();
     }
     
+    @SuppressWarnings("rawtypes")
+	public List<List> getNomeIdPessoa(){
+    	PessoaDAO dao = PessoaDAO.getInstance();
+    	return dao.getNomes();
+    }
 }

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.newprog.logic.controller.Logic;
 
 
-@WebServlet("/MainController")
+@WebServlet("/mvc")
 public class MainController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -24,9 +24,9 @@ public class MainController extends HttpServlet {
 			throws ServletException, IOException {
 		
 		/*recebe o parametro enviado na requisição*/
-		String parametro = req.getParameter("logic");
+		String parametro = req.getParameter("logica");
         /*monta o caminho para a clase de logica solicitada*/
-		String nomeDaClasse = "br.com.newprog.logic." + parametro;
+		String nomeDaClasse = "br.com.newprog.logic.controller." + parametro;
 		
 		try {
 			Class<?> classe = Class.forName(nomeDaClasse);
