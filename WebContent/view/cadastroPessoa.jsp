@@ -21,7 +21,7 @@
 						<hr />
 
 						<form class="form-horizontal frm-main"
-							action="../PessoaController" method="post">
+							action="../mvc" method="post">
 							<!-- tipos pessoa -->
 							<div class="form-group">
 								<label class="radio-inline frm-rd-tipo">Tipo Pessoa</label> <label

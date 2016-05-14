@@ -3,7 +3,7 @@
 
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="home.jsp">BiblioControl <span
+			<a class="navbar-brand" href="${pageContext.request.contextPath}/view/home.jsp">BiblioControl <span
 				class="glyphicon glyphicon-off" aria-hidden="true"></span>
 			</a>
 			<button type="button" data-target=".navbar-collapse"
@@ -33,10 +33,10 @@
 					data-toggle="dropdown"> Cadastro <span class="caret"></span>
 				</a> <!-- lista de opções dentro de um menu dropdown -->
 					<ul class="dropdown-menu">
-						<li><a href="../view/cadastroPessoa.jsp" class="iten-menu-responsivo-adapter">Pessoas
+						<li><a href="${pageContext.request.contextPath}/view/cadastroPessoa.jsp" class="iten-menu-responsivo-adapter">Pessoas
 								<span class="glyphicon glyphicon-user navbar-right"></span>
 						</a></li>
-						<li><a href="#" class="iten-menu-responsivo-adapter">Usuários
+						<li><a href="${pageContext.request.contextPath}/view/cadastroUsuario.jsp" class="iten-menu-responsivo-adapter">Usuários
 								<span class="glyphicon glyphicon-star navbar-right"></span>
 						</a></li>
 						<li><a href="#" class="iten-menu-responsivo-adapter">Itens

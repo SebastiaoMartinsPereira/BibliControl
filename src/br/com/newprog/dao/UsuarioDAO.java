@@ -6,18 +6,17 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import br.com.newprog.model.Pessoa;
+import br.com.newprog.model.Usuario;
 
-public class PessoaDAO {
+public class UsuarioDAO {
 
 	// declara o objeto static privado para que apenas a classe tenha acesso.
-	private static PessoaDAO instance;
+	private static UsuarioDAO instance;
 
 	protected EntityManager entityManager;
 
 	private EntityManager getEntityManager() {
-		EntityManagerFactory factory = Persistence
-				.createEntityManagerFactory("impacta-unit");
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("impacta-unit");
 		if (entityManager == null) {
 			entityManager = factory.createEntityManager();
 		}
@@ -25,58 +24,53 @@ public class PessoaDAO {
 	}
 
 	// Cria o SingleTon
-	public static PessoaDAO getInstance() {
+	public static UsuarioDAO getInstance() {
 		if (instance == null) {
-			instance = new PessoaDAO();
+			instance = new UsuarioDAO();
 		}
 		return instance;
 	}
 
 	// Private para que apenas a classe tenha acesso.
-	public PessoaDAO() {
+	public UsuarioDAO() {
 		entityManager = getEntityManager();
 	}
 
-	public String adiciona(Pessoa pessoa) {
+	public String adiciona(Usuario usuario) {
 		entityManager.getTransaction().begin();
-		entityManager.persist(pessoa);
+		entityManager.persist(usuario);
 		entityManager.getTransaction().commit();
 		entityManager.close();
-		return "redirect:lista-pessoas";
+		return "redirect:lista-Usuarios";
 	}
 
-	public void remover(Pessoa pessoa) {
+	public void remover(Usuario usuario) {
 		entityManager.getTransaction().begin();
-		entityManager.remove(pessoa);
+		entityManager.remove(usuario);
 		entityManager.getTransaction().commit();
 	}
 
-	public String altera(Pessoa pessoa) {
+	public String altera(Usuario Usuario) {
 		entityManager.getTransaction().begin();
-		entityManager.merge(pessoa);
+		entityManager.merge(Usuario);
 		entityManager.getTransaction().commit();
 		entityManager.close();
-		return "redirect:lista-pessoas";
+		return "redirect:lista-Usuarios";
 	}
 
-	public Pessoa find(Long id){
-		return entityManager.find(Pessoa.class, id);
-	}
-	
-	/** Recupera a lista de Pessoas da base de dados */
-	public List<Pessoa> getPessoas() {
+	/** Recupera a lista de Usuarios da base de dados */
+	public List<Usuario> getUsuarios() {
 		@SuppressWarnings("unchecked")
-		List<Pessoa> lista = entityManager.createQuery(
-				"Select p from Pessoa as p").getResultList();
+		List<Usuario> lista = entityManager.createQuery("Select p from Usuario as p").getResultList();
 		return lista;
 	}
 
 	@SuppressWarnings("rawtypes")
 	public List<List> getNomes() {
-		
-		return entityManager.createQuery(
-				"select new List(" + "p.id," + "p.nome) from Pessoa as p",
-				List.class).getResultList();
-		
+
+		return entityManager.createQuery("select new List(" + "p.id," + "p.nome) from Usuario as p", List.class)
+				.getResultList();
+
 	}
+
 }

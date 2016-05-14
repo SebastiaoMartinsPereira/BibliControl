@@ -3,12 +3,11 @@ package br.com.newprog.model;
 import java.time.Instant;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
@@ -19,12 +18,11 @@ import br.com.newprog.model.Enums.TipoPessoa;
 public class Pessoa {
 
 	@Id
-/*	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PESSOA_SEQ")*/
+	/*
+	 * @GeneratedValue(strategy = GenerationType.SEQUENCE, generator =
+	 * "PESSOA_SEQ")
+	 */
 	private long id;
-
-	@OneToOne(cascade = javax.persistence.CascadeType.ALL, optional = true, fetch = FetchType.EAGER, orphanRemoval = true)
-	@JoinColumn(name = "usuario_id")
-	private Usuario usuario;
 
 	private String nome;
 	private String cpf;
@@ -34,6 +32,9 @@ public class Pessoa {
 	private TipoPessoa tipo;
 	private String tel_fixo;
 	private String tel_celular;
+
+	@OneToOne(mappedBy = "pessoa", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+	private Usuario usuario;
 
 	public long getId() {
 		return id;
@@ -119,9 +120,9 @@ public class Pessoa {
 		this.setDataCadastro(Date.from(Instant.now()));
 	}
 
-	
-	public Pessoa(){}
-	
+	public Pessoa() {
+	}
+
 	public static class PessoaBuilder {
 
 		// parametros obrigatorios

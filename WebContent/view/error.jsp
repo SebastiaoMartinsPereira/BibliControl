@@ -17,7 +17,7 @@
 			<div class="main-index">
 				<div class="row">
 					<div class="col-lg-11 wrapper-main  animated bounceInLeft">
-						<h2 class="frm-main-header">Cadastro Realizado com Sucesso!</h2>
+						<h2 class="frm-main-header">Não foi possivel realizar o cadastro!</h2>
 					</div>
 				</div>
 

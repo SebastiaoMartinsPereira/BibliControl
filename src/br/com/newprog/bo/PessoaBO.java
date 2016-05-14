@@ -42,6 +42,11 @@ public class PessoaBO extends Observable {
     	notifyObservers();
     }
     
+    
+    public Pessoa find(long id){
+    	return new PessoaDAO().find(id);
+    }
+    
     @SuppressWarnings("rawtypes")
 	public List<List> getNomeIdPessoa(){
     	PessoaDAO dao = PessoaDAO.getInstance();

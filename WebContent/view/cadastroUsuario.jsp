@@ -29,17 +29,17 @@
 					<div class="col-lg-11 wrapper-main  animated bounceInLeft">
 						<h2 class="frm-main-header">Cadastro de Usuários</h2>
 						<hr />
-						<form class="form-horizontal frm-main"
-							action="../UsuarioController" method="post">
+						<form class="form-horizontal frm-main" action="../mvc"
+							method="post">
 							<div class="form-group">
 
 								<label for="txtNome" class="col-lg-2 col-sm-2 control-label">Pessoa</label>
 								<div class="col-lg-9 col-sm-10">
 									<select name="usuarios" class="col-lg-4 col-sm-10">
-										<c:forEach var="pessoa" items="${pessoadao.pessoas}">
-											<option value="${pessoa.id}">${pessoa.nome}
-										</c:forEach>
-
+										<option selected="selected" value="0">nenhum
+											<c:forEach var="pessoa" items="${pessoadao.pessoas}">
+												<option value="${pessoa.id}">${pessoa.nome}
+											</c:forEach>
 									</select>
 								</div>
 							</div>
@@ -76,7 +76,7 @@
 								</div>
 							</div>
 
-							<input type="hidden" id="logica" value="CadastroPessoa"
+							<input type="hidden" id="logica" value="CadastroUsuario"
 								name="logica">
 						</form>
 					</div>
