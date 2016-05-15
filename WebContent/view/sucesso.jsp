@@ -16,7 +16,7 @@
 		<div class="container">
 			<div class="main-index">
 				<div class="row">
-					<div class="col-lg-11 wrapper-main  animated bounceInLeft">
+					<div class="col-lg-11 sucesso  animated bounceInLeft">
 						<h2 class="frm-main-header">Cadastro Realizado com Sucesso!</h2>
 					</div>
 				</div>

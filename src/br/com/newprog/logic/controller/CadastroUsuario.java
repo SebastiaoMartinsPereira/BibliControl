@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.hibernate.NonUniqueObjectException;
+import org.hibernate.exception.ConstraintViolationException;
 
 import br.com.newprog.bo.PessoaBO;
 import br.com.newprog.bo.UsuarioBO;
@@ -26,12 +27,14 @@ public class CadastroUsuario implements Logic {
 			usuario.setPessoa(pessoa);
 			cadastrar(usuario);
 			return "/view/sucesso.jsp";
-		} catch (NonUniqueObjectException ex) {
-			return "/view/sucesso.jsp";
+		} catch(ConstraintViolationException ex){
+			return "/view/error.jsp?error=3";
+		}catch (NonUniqueObjectException ex) {
+			return "/view/error.jsp?error=4";
 		} catch (EntityExistsException ex) {
-			return "/view/sucesso.jsp";
+			return "/view/error.jsp?error=5";
 		} catch (Exception e) {
-			return "/view/sucesso.jsp";
+			return "/view/error.jsp?error=1";
 		}
 	}
 
