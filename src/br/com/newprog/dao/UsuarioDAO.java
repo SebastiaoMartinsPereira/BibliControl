@@ -88,10 +88,6 @@ public class UsuarioDAO {
 			@SuppressWarnings("unused")
 			Usuario usuario = new Usuario();
 			usuario.setId(lista.get(0).getId());
-			usuario.setAdmin(lista.get(0).get());
-			usuario.setId(lista.get(0).getId());
-			usuario.setId(lista.get(0).getId());
-			usuario.setId(lista.get(0).getId());
 		}
 
 		return null;
