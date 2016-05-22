@@ -12,7 +12,7 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "Usuario", uniqueConstraints = { @UniqueConstraint(columnNames = {"pessoa_id"}) })
+@Table(name = "Usuario", uniqueConstraints = { @UniqueConstraint(columnNames = { "pessoa_id", "login" }) })
 @SequenceGenerator(name = "USUARIO_SEQ", sequenceName = "usuario_id_seq", allocationSize = 1, initialValue = 0)
 public class Usuario {
 

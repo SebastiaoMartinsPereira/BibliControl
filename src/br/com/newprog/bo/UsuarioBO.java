@@ -6,13 +6,13 @@ import java.util.Observable;
 import br.com.newprog.dao.UsuarioDAO;
 import br.com.newprog.model.Usuario;
 
-public class UsuarioBO extends Observable{
+public class UsuarioBO extends Observable {
 
 	private static UsuarioBO instance;
-	
+
 	public UsuarioBO() {
-    	
-    }
+
+	}
 
 	public static UsuarioBO getInstance() {
 		if (instance == null) {
@@ -44,8 +44,11 @@ public class UsuarioBO extends Observable{
 
 	@SuppressWarnings("rawtypes")
 	public List<List> getNomeIdUsuario() {
-		UsuarioDAO dao = UsuarioDAO.getInstance();
-		return dao.getNomes();
+		return UsuarioDAO.getInstance().getNomes();
+	}
+
+	public Usuario getUsuario(Usuario obj) {
+		return UsuarioDAO.getInstance().findByIdAndlogin(obj);
 	}
 
 }

@@ -35,7 +35,7 @@ public class MainController extends HttpServlet {
 			req.getRequestDispatcher(pagina).forward(req, res);
 		} catch (Exception e) {
 			throw new ServletException(
-					"A lógica de negócios causou uma exceção", e);
+					e.getMessage(), e);
 		}
 
 		super.service(req , res);

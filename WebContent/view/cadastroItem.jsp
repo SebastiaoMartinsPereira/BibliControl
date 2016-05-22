@@ -20,16 +20,16 @@
 						<h2 class="frm-main-header">Cadastro de Itens</h2>
 						<hr />
 
-						<form class="form-horizontal frm-main" action="../mvc"
-							method="post">
+						<form class="form-horizontal frm-main"
+							action="../mvc" method="post">
 							<!-- tipos item -->
 							<div class="form-group">
 								<label class="radio-inline frm-rd-tipo">Tipo Item</label> <label
 									class="radio-inline frm-rd-tipo"> <input id="rdlivro"
-									name="rdTipoItem" value="0" type="radio" checked="checked">
+									name="tipo" value="0" type="radio" checked="checked">
 									Livro
 								</label> <label class="radio-inline frm-rd-tipo"> <input
-									id="rdRevista" name="rdTipoItem" value="1" type="radio">
+									id="rdRevista" name="tipo" value="1" type="radio">
 									Revista 
 							</div>
 							<!-- fim-tipos item -->
@@ -65,7 +65,7 @@
 										class="btn btn-primary text-left">Salvar</button>
 								</div>
 							</div>
-							<input type="hidden" id="logica" value="CadastroPessoa"
+							<input type="hidden" id="logica" value="CadastroItem"
 								name="logica">
 						</form>
 					</div>

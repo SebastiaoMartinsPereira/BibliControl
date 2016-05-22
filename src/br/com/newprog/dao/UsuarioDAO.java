@@ -1,5 +1,6 @@
 package br.com.newprog.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -73,4 +74,27 @@ public class UsuarioDAO {
 
 	}
 
+	@SuppressWarnings("unchecked")
+	public Usuario findByIdAndlogin(Usuario obj) {
+
+		List<Usuario> lista = new ArrayList<Usuario>();
+
+		lista = entityManager.createQuery("from Usuario us join us.pessoa where login = ? and senha = ?")
+				.setParameter(1, obj.getLogin())
+				.setParameter(2, obj.getSenha())
+				.getResultList();
+		if (lista.size() > 0) {
+			
+			@SuppressWarnings("unused")
+			Usuario usuario = new Usuario();
+			usuario.setId(lista.get(0).getId());
+			usuario.setAdmin(lista.get(0).get());
+			usuario.setId(lista.get(0).getId());
+			usuario.setId(lista.get(0).getId());
+			usuario.setId(lista.get(0).getId());
+		}
+
+		return null;
+
+	}
 }

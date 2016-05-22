@@ -18,22 +18,27 @@
 					<div
 						class="col-lg-offset-9 col-lg-3 wrapper-login animated bounceInLeft">
 						<h2 class="frm-login-header">Login</h2>
-						<form class="form-horizontal frm-login">
+						<form class="form-horizontal frm-login" method="post" action="../mvc">
 							<div class="form-group">
 								<label for="txtUser" class="col-sm-2 control-label">Usuário</label>
 								<div class="col-sm-10">
-									<input type="text" class="form-control" id="txtUser" placeholder="user.user" />
+									<input type="text" class="form-control" id="txtUser"
+										placeholder="user.user" name="login" />
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="txtPass" class="col-sm-2 control-label">Senha</label>
 								<div class="col-sm-10">
-									<input type="password" id="txtPass" class="form-control" placeholder="******" />
+									<input type="password" id="txtPass" name="senha"
+										class="form-control" placeholder="******" />
 								</div>
 							</div>
 							<div class="form-group">
 								<button id="btnLogar" name="btnLogar" class="btn btn-primary">Logar</button>
 							</div>
+
+							<input type="hidden" id="logica" value="Login"
+								name="logica">
 						</form>
 
 					</div>

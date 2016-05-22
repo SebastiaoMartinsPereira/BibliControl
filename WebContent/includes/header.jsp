@@ -39,7 +39,7 @@
 						<li><a href="${pageContext.request.contextPath}/view/cadastroUsuario.jsp" class="iten-menu-responsivo-adapter">Usuários
 								<span class="glyphicon glyphicon-star navbar-right"></span>
 						</a></li>
-						<li><a href="#" class="iten-menu-responsivo-adapter">Itens
+						<li><a href="${pageContext.request.contextPath}/view/cadastroItem.jsp" class="iten-menu-responsivo-adapter">Itens
 								<span class="glyphicon glyphicon-book navbar-right"> </span>
 						</a></li>
 					</ul></li>
