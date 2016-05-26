@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<META http-equiv="refresh" content="2;URL=${pageContext.request.contextPath}/view/home.jsp">
 <title>Sucesso</title>
 <%@include file="../includes/headerImports.jsp"%>
 <link rel="stylesheet" type="text/css"

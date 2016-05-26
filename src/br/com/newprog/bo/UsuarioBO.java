@@ -20,9 +20,8 @@ public class UsuarioBO extends Observable {
 		}
 		return instance;
 	}
-
-	// Chama a daoPessoa e retorna a lista de pessoas
-	public List<Usuario> getPessoa() {
+ 
+	public List<Usuario> getUsuario() {
 		UsuarioDAO dao = UsuarioDAO.getInstance();
 		return dao.getUsuarios();
 	}
@@ -41,12 +40,21 @@ public class UsuarioBO extends Observable {
 		setChanged();
 		notifyObservers();
 	}
-
+	
+    public Usuario find(long id){
+    	return new UsuarioDAO().find(id);
+    }
+    
 	@SuppressWarnings("rawtypes")
 	public List<List> getNomeIdUsuario() {
 		return UsuarioDAO.getInstance().getNomes();
 	}
 
+	public Usuario getById(long id) {
+		return UsuarioDAO.getInstance().findById(id);
+	}
+
+	
 	public Usuario getUsuario(Usuario obj) {
 		return UsuarioDAO.getInstance().findByIdAndlogin(obj);
 	}

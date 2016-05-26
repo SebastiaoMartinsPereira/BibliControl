@@ -19,11 +19,10 @@ public class Login  implements Logic {
 		
 		if(obj.getId() > 0){
 			req.setAttribute("usuario",obj );
-			return "Ok";
+			req.getSession().setAttribute("usuario", obj);
+			return "/view/home.jsp";
 		}
-		
-		return "";
-	   	
+		return "/view/error.jsp";  	
 	}
 
 	private Usuario verificarlogin(Usuario obj) {

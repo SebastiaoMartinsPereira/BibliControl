@@ -1,6 +1,5 @@
 package br.com.newprog.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -37,6 +36,10 @@ public class UsuarioDAO {
 		entityManager = getEntityManager();
 	}
 
+	public Usuario find(Long id){
+		return entityManager.find(Usuario.class, id);
+	}
+	
 	public String adiciona(Usuario usuario) {
 		entityManager.getTransaction().begin();
 		entityManager.persist(usuario);
@@ -46,8 +49,9 @@ public class UsuarioDAO {
 	}
 
 	public void remover(Usuario usuario) {
+		Object c = entityManager.merge(usuario);
 		entityManager.getTransaction().begin();
-		entityManager.remove(usuario);
+		entityManager.remove(c);
 		entityManager.getTransaction().commit();
 	}
 
@@ -77,20 +81,38 @@ public class UsuarioDAO {
 	@SuppressWarnings("unchecked")
 	public Usuario findByIdAndlogin(Usuario obj) {
 
-		List<Usuario> lista = new ArrayList<Usuario>();
-
-		lista = entityManager.createQuery("from Usuario us join us.pessoa where login = ? and senha = ?")
+		List<Object[]> resultList  = entityManager.createQuery("from Usuario us join us.pessoa where login = ? and senha = ?")
 				.setParameter(1, obj.getLogin())
 				.setParameter(2, obj.getSenha())
 				.getResultList();
-		if (lista.size() > 0) {
-			
-			@SuppressWarnings("unused")
-			Usuario usuario = new Usuario();
-			usuario.setId(lista.get(0).getId());
+		
+		for (Object[] objects : resultList) {
+		
+			if(objects[0].getClass().getTypeName() == "br.com.newprog.model.Usuario"){
+				Usuario usuario = new Usuario();
+				usuario = (Usuario)objects[0];
+				return usuario;
+			}
 		}
-
 		return null;
-
 	}
+
+	@SuppressWarnings("unchecked")
+	public Usuario findById(long id) {
+
+		List<Object[]> resultList  = entityManager.createQuery("from Usuario us join us.pessoa where us.id = ?")
+				.setParameter(1, id)
+				.getResultList();
+		
+		for (Object[] objects : resultList) {
+		
+			if(objects[0].getClass().getTypeName() == "br.com.newprog.model.Usuario"){
+				Usuario usuario = new Usuario();
+				usuario = (Usuario)objects[0];
+				return usuario;
+			}
+		}
+		return null;
+	}
+	
 }

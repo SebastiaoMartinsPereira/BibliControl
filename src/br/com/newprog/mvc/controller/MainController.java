@@ -38,6 +38,6 @@ public class MainController extends HttpServlet {
 					e.getMessage(), e);
 		}
 
-		super.service(req , res);
+		//super.service(req , res);
 	}
 }
