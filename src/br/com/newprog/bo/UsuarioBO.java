@@ -26,12 +26,15 @@ public class UsuarioBO extends Observable {
 		return dao.getUsuarios();
 	}
 
-	public Usuario salvar(Usuario usuario) {
-		UsuarioDAO dao = UsuarioDAO.getInstance();
-		dao.adiciona(usuario);
+	public String salvar(Usuario usuario) {
+		String page = UsuarioDAO.getInstance().adiciona(usuario);
 		setChanged();
 		notifyObservers();
-		return usuario;
+		return page;
+	}
+	
+	public String alterar(Usuario usuario){
+		return UsuarioDAO.getInstance().altera(usuario);
 	}
 
 	public void remover(Usuario usuario) {

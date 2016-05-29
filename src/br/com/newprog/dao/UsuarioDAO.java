@@ -44,8 +44,7 @@ public class UsuarioDAO {
 		entityManager.getTransaction().begin();
 		entityManager.persist(usuario);
 		entityManager.getTransaction().commit();
-		entityManager.close();
-		return "redirect:lista-Usuarios";
+		return "view/listaUsuarios.jsp";
 	}
 
 	public void remover(Usuario usuario) {
@@ -59,8 +58,7 @@ public class UsuarioDAO {
 		entityManager.getTransaction().begin();
 		entityManager.merge(Usuario);
 		entityManager.getTransaction().commit();
-		entityManager.close();
-		return "redirect:lista-Usuarios";
+		return "view/listaUsuarios.jsp";
 	}
 
 	/** Recupera a lista de Usuarios da base de dados */

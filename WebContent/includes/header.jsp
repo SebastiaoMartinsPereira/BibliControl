@@ -51,14 +51,15 @@
 								class="glyphicon glyphicon-book navbar-right"> </span>
 						</a></li>
 					</ul></li>
-
 				<!-- Defini o botão que irá mostrar a lista de opções -->
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown"> Consulta <span class="caret"></span>
 				</a> <!-- lista de opções dentro de um menu dropdown -->
 					<ul class="dropdown-menu">
-						<li><a href="#" class="iten-menu-responsivo-adapter">Pessoas
-								<span class="glyphicon glyphicon-user navbar-right"></span>
+						<li><a
+							href="${pageContext.request.contextPath}/view/listaPessoas.jsp"
+							class="iten-menu-responsivo-adapter">Pessoas <span
+								class="glyphicon glyphicon-user navbar-right"></span>
 						</a></li>
 						<li><a
 							href="${pageContext.request.contextPath}/view/listaUsuarios.jsp"

@@ -37,7 +37,5 @@ public class MainController extends HttpServlet {
 			throw new ServletException(
 					e.getMessage(), e);
 		}
-
-		//super.service(req , res);
 	}
 }

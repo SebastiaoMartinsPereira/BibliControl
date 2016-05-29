@@ -4,7 +4,6 @@ import javax.persistence.EntityExistsException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.hibernate.NonUniqueObjectException;
 import org.hibernate.exception.ConstraintViolationException;
 
 import br.com.newprog.bo.PessoaBO;
@@ -18,28 +17,39 @@ public class CadastroUsuario implements Logic {
 	public String executa(HttpServletRequest req, HttpServletResponse res) throws Exception {
 
 		try {
+
 			Usuario usuario = new Usuario();
 			Pessoa pessoa = PessoaBO.getInstance().find(Long.parseLong(req.getParameter("usuarios")));
-			usuario.setLogin(req.getParameter("admin"));
 			usuario.setLogin(req.getParameter("login"));
 			usuario.setSenha(req.getParameter("senha"));
 			usuario.setAdmin(Boolean.parseBoolean(req.getParameter("admin")));
 			usuario.setPessoa(pessoa);
-			cadastrar(usuario);
-			return "/view/sucesso.jsp";
-		} catch(ConstraintViolationException ex){
-			return "/view/error.jsp?error=3";
-		}catch (NonUniqueObjectException ex) {
-			return "/view/error.jsp?error=4";
+
+			if (req.getParameter("id") != null) {
+				usuario.setId(Integer.parseInt(req.getParameter("id")));
+				return editar(usuario);
+			} else {
+				return cadastrar(usuario);
+			}
+
+		} catch (ConstraintViolationException ex) {
+			req.setAttribute("error", "Violação de regras!");
+			return "/view/error.jsp";
 		} catch (EntityExistsException ex) {
-			return "/view/error.jsp?error=5";
+			req.setAttribute("error", "Esta pessoa já possui usuário cadastrado!");
+			return "/view/error.jsp";
 		} catch (Exception e) {
-			return "/view/error.jsp?error=1";
+			req.setAttribute("error", "Ocorreram problemas durannte a execução!<br/>Contate o administrador");
+			return "/view/error.jsp";
 		}
 	}
 
-	private void cadastrar(Usuario usuario) {
-		UsuarioBO.getInstance().salvar(usuario);
+	private String cadastrar(Usuario usuario) {
+		return UsuarioBO.getInstance().salvar(usuario);
+	}
+
+	private String editar(Usuario usuario) {
+		return UsuarioBO.getInstance().alterar(usuario);
 	}
 
 }

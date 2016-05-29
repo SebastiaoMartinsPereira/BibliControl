@@ -46,8 +46,9 @@ public class PessoaDAO {
 	}
 
 	public void remover(Pessoa pessoa) {
+		Object c = entityManager.merge(pessoa);		
 		entityManager.getTransaction().begin();
-		entityManager.remove(pessoa);
+		entityManager.remove(c);
 		entityManager.getTransaction().commit();
 	}
 

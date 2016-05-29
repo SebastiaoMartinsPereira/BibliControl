@@ -123,6 +123,14 @@ public class Pessoa {
 	public Pessoa() {
 	}
 
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
 	public static class PessoaBuilder {
 
 		// parametros obrigatorios
