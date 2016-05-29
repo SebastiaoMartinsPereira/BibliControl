@@ -38,13 +38,13 @@ public class ItemDAO {
 		entityManager.getTransaction().begin();
 		entityManager.persist(obj);
 		entityManager.getTransaction().commit();
-		entityManager.close();
-		return "redirect:lista-itens";
+		return "view/listaItens.jsp";
 	}
 
 	public void remover(Item obj) {
+		Object c = entityManager.merge(obj);	
 		entityManager.getTransaction().begin();
-		entityManager.remove(obj);
+		entityManager.remove(c);
 		entityManager.getTransaction().commit();
 	}
 
@@ -52,8 +52,7 @@ public class ItemDAO {
 		entityManager.getTransaction().begin();
 		entityManager.merge(obj);
 		entityManager.getTransaction().commit();
-		entityManager.close();
-		return "redirect:lista-itens";
+		return "view/listaItens.jsp";
 	}
 
 	public Item find(Long id) {
@@ -70,7 +69,7 @@ public class ItemDAO {
 	@SuppressWarnings("rawtypes")
 	public List<List> getNomes() {
 
-		return entityManager.createQuery("select new List(" + "p.id," + "p.nome) from Item as p", List.class)
+		return entityManager.createQuery("select new List(" + "p.id," + "p.descricao) from Item as p", List.class)
 				.getResultList();
 
 	}

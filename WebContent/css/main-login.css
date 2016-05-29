@@ -15,6 +15,12 @@
 	/* margin: auto; */
 }
 
+.msg-error {
+	color: red;
+	text-transform: none;
+	text-shadow: 4px 4px 27px red;
+}
+
 .frm-login {
 	text-align: center;
 }
@@ -46,7 +52,3 @@
 		padding-top: 7px;
 	}
 }
-
-
-
-

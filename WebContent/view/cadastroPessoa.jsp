@@ -17,32 +17,64 @@
 			<div class="main-index">
 				<div class="row">
 					<div class="col-lg-11 wrapper-main  animated bounceInLeft">
-						<h2 class="frm-main-header">Cadastro de Pessoas</h2>
+						<h2 class="frm-main-header">
+							<c:choose>
+								<c:when test="${pessoa_editar.id != null}">
+									<span>Editar Pessoa</span>
+								</c:when>
+								<c:otherwise>
+									<span>Cadastro de Pessoas</span>
+								</c:otherwise>
+							</c:choose>
+						</h2>
 						<hr />
 
 						<form class="form-horizontal frm-main"
-							action="../mvc" method="post">
+							action="${pageContext.request.contextPath}/mvc" method="post">
 							<!-- tipos pessoa -->
 							<div class="form-group">
-								<label class="radio-inline frm-rd-tipo">Tipo Pessoa</label> <label
-									class="radio-inline frm-rd-tipo"> <input
-									id="rdFuncionario" name="rdTipoPessoa" value="0" type="radio"
-									checked="checked"> Aluno
-								</label> <label class="radio-inline frm-rd-tipo"> <input
-									id="rdAluno" name="rdTipoPessoa" value="1" type="radio">
-									Funcionário
-								</label> <label class="radio-inline frm-rd-tipo"> <input
-									id="rdProfessor" name="rdTipoPessoa" value="2" type="radio">
-									Professor
-								</label>
+								<label class="radio-inline frm-rd-tipo">Tipo Pessoa</label>
+								<c:choose>
+									<c:when test="${pessoa_editar.tipo == 'ALUNO'}">
+										<label class="radio-inline frm-rd-tipo"> <input
+											id="rdFuncionario" name="rdTipoPessoa" value="0" type="radio"
+											checked="checked"> Aluno
+										</label>
+									</c:when>
+									<c:when test="${pessoa_editar.tipo == 'FUNCIONARIO' }">
+										<label class="radio-inline frm-rd-tipo"> <input
+											id="rdAluno" name="rdTipoPessoa" checked="checked" value="1"
+											type="radio"> Funcionário
+										</label>
+									</c:when>
+									<c:when test="${pessoa_editar.tipo == 'PROFESSOR' }">
+										<label class="radio-inline frm-rd-tipo"> <input
+											id="rdProfessor" name="rdTipoPessoa" checked="checked"
+											value="2" type="radio"> Professor
+										</label>
+									</c:when>
+									<c:otherwise>
+										<label class="radio-inline frm-rd-tipo"> <input
+											id="rdFuncionario" name="rdTipoPessoa" value="0" type="radio"
+											checked="checked"> Aluno
+										</label>
+										<label class="radio-inline frm-rd-tipo"> <input
+											id="rdAluno" name="rdTipoPessoa" value="1" type="radio">
+											Funcionário
+										</label>
+										<label class="radio-inline frm-rd-tipo"> <input
+											id="rdProfessor" name="rdTipoPessoa" value="2" type="radio">
+											Professor
+										</label>
+									</c:otherwise>
+								</c:choose>
 							</div>
 							<!-- fim-tipos pessoa -->
-
 							<div class="form-group">
 								<label for="txtNome" class="col-lg-2 col-sm-2 control-label">Nome</label>
 								<div class="col-lg-9 col-sm-10">
 									<input type="text" class="form-control" id="nome" name="nome"
-										placeholder="Nome completo" />
+										value="${pessoa_editar.nome}" placeholder="Nome completo" />
 								</div>
 							</div>
 
@@ -50,13 +82,13 @@
 								<label for="txtRg" class="col-lg-2 col-sm-2 control-label">Rg</label>
 								<div class="col-lg-3 col-sm-10">
 									<input type="text" class="form-control" id="txtRg" name="rg"
-										placeholder="99999999" />
+										value="${pessoa_editar.rg}" placeholder="99999999" />
 								</div>
 
 								<label for="txtCpf" class="col-lg-2 col-sm-2 control-label">Cpf</label>
 								<div class="col-lg-4 col-sm-10">
 									<input type="text" id="txtCpf" class="form-control" name="cpf"
-										placeholder="999.999.999-99" />
+										value="${pessoa_editar.cpf}" placeholder="999.999.999-99" />
 								</div>
 							</div>
 
@@ -72,7 +104,8 @@
 									<div class="input-group">
 										<span class="input-group-addon">@</span> <input type="text"
 											id="txtEmail" class="form-control" name="email"
-											placeholder="email@email.com">
+											value="${pessoa_editar.email}" placeholder="email@email.com">
+
 									</div>
 								</div>
 							</div>
@@ -82,12 +115,14 @@
 									Fixo</label>
 								<div class="col-lg-3 col-sm-10">
 									<input type="text" class="form-control" id="txtTelFixo"
-										placeholder="(11) 99999999" name="telfixo" />
+										value="${pessoa_editar.tel_fixo}" placeholder="(11) 99999999"
+										name="telfixo" />
 								</div>
 
 								<label for="txtCelular" class="col-lg-2 col-sm-2 control-label">Celular</label>
 								<div class="col-lg-4 col-sm-10">
 									<input type="text" id="txtCelular" class="form-control"
+										value="${pessoa_editar.tel_celular}"
 										placeholder="(11) 91111-1111" name="telcelular" />
 								</div>
 							</div>
@@ -98,6 +133,12 @@
 										class="btn btn-primary text-left">Salvar</button>
 								</div>
 							</div>
+							
+							<c:if test="${pessoa_editar.id != null}">
+								<input type="hidden" id="id" value="${pessoa_editar.id}" name="id">
+								<input type="hidden" id="id_usuario" value="${pessoa_editar.usuario.id}" name="id_usuario">
+							</c:if>
+
 							<input type="hidden" id="logica" value="CadastroPessoa"
 								name="logica">
 						</form>

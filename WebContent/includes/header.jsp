@@ -66,8 +66,10 @@
 							class="iten-menu-responsivo-adapter">Usuários <span
 								class="glyphicon glyphicon-star navbar-right"></span>
 						</a></li>
-						<li><a href="#" class="iten-menu-responsivo-adapter">Itens
-								<span class="glyphicon glyphicon-book navbar-right"> </span>
+						<li><a
+							href="${pageContext.request.contextPath}/view/listaItens.jsp"
+							class="iten-menu-responsivo-adapter">Itens <span
+								class="glyphicon glyphicon-book navbar-right"> </span>
 						</a></li>
 						<li><a href="#" class="iten-menu-responsivo-adapter">Empréstimos
 								<span class="glyphicon glyphicon-usd navbar-right"> </span>

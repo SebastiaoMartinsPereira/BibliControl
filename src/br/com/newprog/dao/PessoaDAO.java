@@ -42,7 +42,7 @@ public class PessoaDAO {
 		entityManager.persist(pessoa);
 		entityManager.getTransaction().commit();
 		entityManager.close();
-		return "redirect:lista-pessoas";
+		return "view/listaPessoas.jsp";
 	}
 
 	public void remover(Pessoa pessoa) {
@@ -56,8 +56,7 @@ public class PessoaDAO {
 		entityManager.getTransaction().begin();
 		entityManager.merge(pessoa);
 		entityManager.getTransaction().commit();
-		entityManager.close();
-		return "redirect:lista-pessoas";
+		return "view/listaPessoas.jsp";
 	}
 
 	public Pessoa find(Long id){

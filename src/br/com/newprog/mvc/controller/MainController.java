@@ -25,7 +25,7 @@ public class MainController extends HttpServlet {
 		
 		/*recebe o parametro enviado na requisição*/
 		String parametro = req.getParameter("logica");
-        /*monta o caminho para a clase de logica solicitada*/
+        /*monta o caminho para a classe de logica solicitada*/
 		String nomeDaClasse = "br.com.newprog.logic.controller." + parametro;
 		
 		try {

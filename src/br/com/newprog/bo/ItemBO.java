@@ -27,14 +27,23 @@ public class ItemBO extends Observable {
 		return dao.getItems();
 	}
 
-	public Item salvar(Item obj) {
+	public String salvar(Item obj) {
 		ItemDAO dao = ItemDAO.getInstance();
-		dao.adiciona(obj);
+		String page = dao.adiciona(obj);
 		setChanged();
 		notifyObservers();
-		return obj;
+		return page;
 	}
 
+	public String alterar(Item obj) {
+		ItemDAO dao = ItemDAO.getInstance();
+		String page = dao.altera(obj);
+		setChanged();
+		notifyObservers();
+		return page;
+	}
+
+	
 	public void remover(Item obj) {
 		ItemDAO dao = ItemDAO.getInstance();
 		dao.remover(obj);

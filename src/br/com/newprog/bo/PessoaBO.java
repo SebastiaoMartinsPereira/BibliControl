@@ -27,14 +27,22 @@ public class PessoaBO extends Observable {
         return dao.getPessoas();
     }
     
-    public Pessoa salvar(Pessoa pessoa) {
+    public String salvar(Pessoa pessoa) {
     	PessoaDAO dao = PessoaDAO.getInstance();
-    	dao.adiciona(pessoa);
+    	String page = dao.adiciona(pessoa);
     	setChanged();
     	notifyObservers();
-        return pessoa;
+        return page;
     }
 
+    public String alterar(Pessoa pessoa) {
+    	PessoaDAO dao = PessoaDAO.getInstance();
+    	String page = dao.altera(pessoa);
+    	setChanged();
+    	notifyObservers();
+        return page;
+    }
+    
     public void remover(Pessoa pessoa) {
     	PessoaDAO dao = PessoaDAO.getInstance();
     	dao.remover(pessoa);

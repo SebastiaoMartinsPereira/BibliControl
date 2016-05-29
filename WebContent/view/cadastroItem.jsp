@@ -17,20 +17,50 @@
 			<div class="main-index">
 				<div class="row">
 					<div class="col-lg-11 wrapper-main  animated bounceInLeft">
-						<h2 class="frm-main-header">Cadastro de Itens</h2>
+
+						<h2 class="frm-main-header">
+							<c:choose>
+								<c:when test="${item_editar != null}">
+									<span>Editar Item</span>
+								</c:when>
+								<c:otherwise>
+									<span> Cadastrar Item</span>
+								</c:otherwise>
+							</c:choose>
+						</h2>
 						<hr />
 
-						<form class="form-horizontal frm-main"
-							action="../mvc" method="post">
+						<form class="form-horizontal frm-main" action="${pageContext.request.contextPath}/mvc"
+							method="post">
 							<!-- tipos item -->
 							<div class="form-group">
-								<label class="radio-inline frm-rd-tipo">Tipo Item</label> <label
-									class="radio-inline frm-rd-tipo"> <input id="rdlivro"
-									name="tipo" value="0" type="radio" checked="checked">
-									Livro
-								</label> <label class="radio-inline frm-rd-tipo"> <input
-									id="rdRevista" name="tipo" value="1" type="radio">
-									Revista 
+								<label class="radio-inline frm-rd-tipo">Tipo Item</label>
+
+
+								<c:choose>
+									<c:when test="${item_editar.tipo == 'LIVRO'}">
+										<label class="radio-inline frm-rd-tipo"> <input
+											id="rdlivro" name="tipo" value="0" type="radio"
+											checked="checked"> Livro
+										</label>
+									</c:when>
+									<c:when test="${item_editar.tipo == 'REVISTA' }">
+										<label class="radio-inline frm-rd-tipo"> <input
+											id="rdRevista" checked="checked" name="tipo" value="1"
+											type="radio"> Revista
+										</label>
+									</c:when>
+									<c:otherwise>
+										<label class="radio-inline frm-rd-tipo"> <input
+											id="rdlivro" name="tipo" value="0" type="radio"
+											checked="checked"> Livro
+										</label>
+										<label class="radio-inline frm-rd-tipo"> <input
+											id="rdRevista" name="tipo" value="1" type="radio">
+											Revista
+										</label>
+									</c:otherwise>
+								</c:choose>
 							</div>
 							<!-- fim-tipos item -->
 
@@ -39,7 +69,8 @@
 									class="col-lg-2 col-sm-2 control-label">Descrição</label>
 								<div class="col-lg-9 col-sm-10">
 									<input type="text" class="form-control" id="txtDescricao"
-										name="descricao" placeholder="Descrição" />
+										value="${item_editar.descricao}" name="descricao"
+										placeholder="Descrição" />
 								</div>
 							</div>
 
@@ -48,14 +79,24 @@
 									Interno</label>
 								<div class="col-lg-3 col-sm-10">
 									<input type="text" class="form-control" id="txtCodigo"
-										name="codigoInterno" placeholder="LV-0001" />
+										value="${item_editar.codigoInterno}" name="codigoInterno"
+										placeholder="LV-0001" />
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="chkEspecial" class="col-lg-2 col-sm-2 control-label">Especial</label>
 								<div class="col-lg-1 col-sm-1">
-									<input type="checkbox" id="chkEspecial" class="form-control"
-										name="especial" value="1" />
+
+									<c:choose>
+										<c:when test="${item_editar.especial == true}">
+											<input type="checkbox" id="chkEspecial" class="form-control"
+												name="especial" checked="checked" value="true" />
+										</c:when>
+										<c:otherwise>
+											<input type="checkbox" id="chkEspecial" class="form-control"
+												name="especial" value="true" />
+										</c:otherwise>
+									</c:choose>
 								</div>
 							</div>
 
@@ -65,6 +106,10 @@
 										class="btn btn-primary text-left">Salvar</button>
 								</div>
 							</div>
+							<c:if test="${item_editar.id != null}">
+								<input type="hidden" id="id" value="${item_editar.id}" name="id">
+							</c:if>
+
 							<input type="hidden" id="logica" value="CadastroItem"
 								name="logica">
 						</form>

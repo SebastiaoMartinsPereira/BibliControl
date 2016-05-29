@@ -36,7 +36,6 @@
 									<span> Cadastrar usuário</span>
 								</c:otherwise>
 							</c:choose>
-
 						</h2>
 						<hr />
 						<form class="form-horizontal frm-main"

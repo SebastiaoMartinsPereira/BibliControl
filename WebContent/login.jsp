@@ -37,8 +37,12 @@
 								<button id="btnLogar" name="btnLogar" class="btn btn-primary">Logar</button>
 							</div>
 
-							<input type="hidden" id="logica" value="Login"
-								name="logica">
+							<c:if test="${error != null }">
+								<div class="form-group">
+									<span class="msg-error">${error}</span>
+								</div>
+							</c:if>
+							<input type="hidden" id="logica" value="Login" name="logica">
 						</form>
 
 					</div>
