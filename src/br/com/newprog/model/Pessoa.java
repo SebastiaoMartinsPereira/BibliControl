@@ -4,7 +4,6 @@ import java.time.Instant;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
@@ -35,6 +34,8 @@ public class Pessoa {
 
 	@OneToOne(mappedBy = "pessoa", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
 	private Usuario usuario;
+ 
+	
 
 	public long getId() {
 		return id;
@@ -130,6 +131,16 @@ public class Pessoa {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
+/*
+	private List<Emprestimo> emprestimo;
+	
+	public List<Emprestimo> getEmprestimo() {
+		return emprestimo;
+	}
+
+	public void setEmprestimo(List<Emprestimo> emprestimo) {
+		this.emprestimo = emprestimo;
+	}*/
 
 	public static class PessoaBuilder {
 

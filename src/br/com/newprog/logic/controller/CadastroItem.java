@@ -4,9 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.newprog.bo.ItemBO;
-import br.com.newprog.bo.UsuarioBO;
 import br.com.newprog.model.Item;
-import br.com.newprog.model.Usuario;
 import br.com.newprog.model.Enums.TipoItem;
 
 public class CadastroItem implements Logic {

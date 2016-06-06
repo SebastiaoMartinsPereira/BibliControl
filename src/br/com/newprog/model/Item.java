@@ -19,6 +19,7 @@ public class Item {
 	private String codigoInterno;
 	private boolean especial;
 	private TipoItem tipo;
+	private boolean emprestado;
 
 	public long getId() {
 		return id;
@@ -31,6 +32,8 @@ public class Item {
 	public String getDescricao() {
 		return descricao;
 	}
+
+	
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
@@ -59,5 +62,23 @@ public class Item {
 	public void setTipo(TipoItem tipo) {
 		this.tipo = tipo;
 	}
+
+	public boolean isEmprestado() {
+		return emprestado;
+	}
+
+	public void setEmprestado(boolean emprestado) {
+		this.emprestado = emprestado;
+	}
+
+/*	private Emprestimo emprestimo;
+	
+	public Emprestimo getEmprestimo() {
+		return emprestimo;
+	}
+
+	public void setEmprestimo(Emprestimo emprestimo) {
+		this.emprestimo = emprestimo;
+	}*/
 
 }

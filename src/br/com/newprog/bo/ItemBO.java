@@ -60,4 +60,11 @@ public class ItemBO extends Observable {
 		ItemDAO dao = ItemDAO.getInstance();
 		return dao.getNomes();
 	}
+	
+    @SuppressWarnings("rawtypes")
+	public List<List> getNomeId(String nome){
+    	ItemDAO dao = ItemDAO.getInstance();
+    	return dao.getNomes(nome);
+    }
+    
 }

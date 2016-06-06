@@ -60,4 +60,11 @@ public class PessoaBO extends Observable {
     	PessoaDAO dao = PessoaDAO.getInstance();
     	return dao.getNomes();
     }
+    
+    @SuppressWarnings("rawtypes")
+	public List<List> getNomeIdPessoa(String nome){
+    	PessoaDAO dao = PessoaDAO.getInstance();
+    	return dao.getNomes(nome);
+    }
+    
 }

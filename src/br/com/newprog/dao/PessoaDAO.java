@@ -60,7 +60,15 @@ public class PessoaDAO {
 	}
 
 	public Pessoa find(Long id){
-		return entityManager.find(Pessoa.class, id);
+
+		try {
+			return entityManager.find(Pessoa.class, id);
+		} catch (Exception e) {
+			throw e;
+		}finally {
+			entityManager.close();
+		}
+		
 	}
 	
 	/** Recupera a lista de Pessoas da base de dados */
@@ -73,10 +81,18 @@ public class PessoaDAO {
 
 	@SuppressWarnings("rawtypes")
 	public List<List> getNomes() {
-		
 		return entityManager.createQuery(
 				"select new List(" + "p.id," + "p.nome) from Pessoa as p",
 				List.class).getResultList();
-		
 	}
+	
+	@SuppressWarnings("rawtypes")
+	public List<List> getNomes(String nome) {
+		return entityManager.createQuery(
+				"select new List(" + "p.id,p.nome,p.tipo) from Pessoa as p where p.nome like :nome",
+				List.class)
+				.setParameter("nome", nome + "%")
+				.getResultList();
+	}
+	
 }

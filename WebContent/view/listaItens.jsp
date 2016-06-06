@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ page import="br.com.newprog.model.Item"%>
@@ -33,8 +33,10 @@
 									<th>Cod. Interno</th>
 									<th>Tipo</th>
 									<th>Especial</th>
+									<th>Emprestado</th>
 									<th>Deletar</th>
 									<th>Editar</th>
+
 								</tr>
 							</thead>
 							<c:forEach var="obj" items="${dao.items}">
@@ -44,6 +46,7 @@
 									<td>${obj.codigoInterno}</td>
 									<td>${obj.tipo}</td>
 									<td>${obj.especial}</td>
+									<td>${obj.emprestado}</td>
 									<td><a class="btn btn-danger"
 										href="${pageContext.request.contextPath}/mvc?logica=DeletarItem&id=${obj.id}"><span
 											class="glyphicon glyphicon-trash"></span></a></td>

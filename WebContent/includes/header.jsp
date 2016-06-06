@@ -21,10 +21,11 @@
 					data-toggle="dropdown"> Ações <span class="caret"></span>
 				</a> <!-- lista de opções dentro de um menu dropdown -->
 					<ul class="dropdown-menu">
-						<li><a href="" class="iten-menu-responsivo-adapter">
+						<li><a href="${pageContext.request.contextPath}/view/emprestimo.jsp"
+						 class="iten-menu-responsivo-adapter">
 								Empréstimo <span class="glyphicon glyphicon-export navbar-right"></span>
 						</a></li>
-						<li><a href="" class="iten-menu-responsivo-adapter">
+						<li><a  href="${pageContext.request.contextPath}/view/devolucao.jsp" class="iten-menu-responsivo-adapter">
 								Devolução <span class="glyphicon glyphicon-import navbar-right"></span>
 						</a></li>
 

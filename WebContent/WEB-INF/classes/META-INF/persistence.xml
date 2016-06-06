@@ -13,6 +13,7 @@
 		<class>br.com.newprog.model.Pessoa</class>
 		<class>br.com.newprog.model.Usuario</class>
 		<class>br.com.newprog.model.Item</class>
+		<class>br.com.newprog.model.Emprestimo</class>
 		<properties>
 			<!-- dados da conexao -->
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />

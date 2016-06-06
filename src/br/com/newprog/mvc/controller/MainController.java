@@ -25,12 +25,13 @@ public class MainController extends HttpServlet {
 		
 		/*recebe o parametro enviado na requisição*/
 		String parametro = req.getParameter("logica");
+
         /*monta o caminho para a classe de logica solicitada*/
 		String nomeDaClasse = "br.com.newprog.logic.controller." + parametro;
 		
 		try {
 			Class<?> classe = Class.forName(nomeDaClasse);
-			Logic logica = (Logic) classe.newInstance();
+			Logic logica = (Logic)classe.newInstance();
 			String pagina = logica.executa(req, res);
 			req.getRequestDispatcher(pagina).forward(req, res);
 		} catch (Exception e) {

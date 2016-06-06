@@ -56,7 +56,14 @@ public class ItemDAO {
 	}
 
 	public Item find(Long id) {
-		return entityManager.find(Item.class, id);
+		try {
+			return entityManager.find(Item.class, id);
+		} catch (Exception e) {
+			throw e;
+		}finally {
+			entityManager.close();
+		}
+		
 	}
 
 	/** Recupera a lista de Items da base de dados */
@@ -73,4 +80,15 @@ public class ItemDAO {
 				.getResultList();
 
 	}
+	
+	@SuppressWarnings("rawtypes")
+	public List<List> getNomes(String nome) {
+		return entityManager.createQuery("select new List(" + "p.id,p.descricao,p.tipo,p.especial)"
+				+ " from Item as p where p.descricao like :nome AND p.emprestado = 0"
+		, List.class)
+				.setParameter("nome", nome + "%")
+				.getResultList();
+
+	}
+	
 }
